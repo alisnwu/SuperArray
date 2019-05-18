@@ -91,10 +91,11 @@ public class SuperArray{
     return false;
   }
   public void add(int index, String element){
-    try{for(int i = arr.length - 1; i > index; i--){
-      arr[i] = arr[i-1];
+    try{
+      for(int i = arr.length - 1; i > index; i--){
+        arr[i] = arr[i-1];
       }
-    arr[index] = element;
+      arr[index] = element;
     }
     catch(ArrayIndexOutOfBoundsException e){
       System.out.println(e.getMessage());
@@ -119,10 +120,10 @@ public class SuperArray{
   public String remove(int index){
     String str ="";
     try{
-    str = arr[index];
-    for(int i = index; i < arr.length; i++){
-      arr[i] = arr[i+1];
-    }
+      str = arr[index];
+      for(int i = index; i < arr.length; i++){
+        arr[i] = arr[i+1];
+      }
     }
     catch(ArrayIndexOutOfBoundsException e){
       System.out.println("this is the error for remove 1: " + e.getMessage());
@@ -132,12 +133,11 @@ public class SuperArray{
   public boolean remove(String element){
     for(int i = 0; i < arr.length; i++){
       if(arr[i] == element){
-          for(int j = i; j < arr.length - 1; j++){
-            arr[j] = arr[j+1];
-
-          }
-      arr[arr.length - 1] = null;
-      return true;
+        for(int j = i; j < arr.length - 1; j++){
+          arr[j] = arr[j+1];
+        }
+        arr[arr.length - 1] = null;
+        return true;
       }
     }
     return false;
